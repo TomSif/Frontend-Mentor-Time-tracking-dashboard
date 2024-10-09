@@ -1,0 +1,59 @@
+:root {
+  /* ### Define colors of the project */
+  /*# Primary*/
+  --Blue: hsl(246, 80%, 60%);
+  --Light-red-work: hsl(15, 100%, 70%);
+  --Soft-blue-play: hsl(195, 74%, 62%);
+  --Light-red-study: hsl(348, 100%, 68%);
+  --Lime-green-exercise: hsl(145, 58%, 55%);
+  --Violet-social: hsl(264, 64%, 52%);
+  --Soft-orange-self-care: hsl(43, 84%, 65%);
+  /*# Neutral*/
+  --Very-dark-blue: hsl(226, 43%, 10%);
+  --Dark-blue: hsl(235, 46%, 20%);
+  --Desaturated-blue: hsl(235, 45%, 61%);
+  --Pale-Blue: hsl(236, 100%, 87%);
+
+  /* ### Define padding and gap of the project */
+  --layout-gap: 1.5rem;
+  --layout-padding: 2rem;
+}
+
+/* ### Define Fonts */
+/* rubik-300 - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/rubik-v28-latin-300.woff2") format("woff2");
+}
+/* rubik-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/rubik-v28-latin-regular.woff2") format("woff2");
+}
+/* rubik-500 - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/rubik-v28-latin-500.woff2") format("woff2");
+}
+/* ### Start styling  */
+body {
+  font-family: "swap", sans-serif;
+  background-color: var(--Very-dark-blue);
+  color: white;
+}
+.dashboard {
+  max-width: 16rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
