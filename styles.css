@@ -44,16 +44,303 @@
   font-weight: 500;
   src: url("../fonts/rubik-v28-latin-500.woff2") format("woff2");
 }
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* MOBILE FIRST STYLING APPROACH */
 /* ### Start styling  */
 body {
-  font-family: "swap", sans-serif;
+  font-family: "Rubik", sans-serif;
   background-color: var(--Very-dark-blue);
   color: white;
-}
-.dashboard {
-  max-width: 16rem;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+/* Styling whole column */
+.dashboard {
+  max-height: 100vh; /* otherwise dashboard overflow in small height resolution no idea why  */
+  max-width: 20rem;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 20rem;
+  display: flex;
+  flex-direction: column;
+}
+/* Styling user part */
+.dashboard__header {
+  max-height: 12.65rem;
+  background-color: var(--Dark-blue);
+  width: 100%;
+  border-radius: 1rem;
+  margin-bottom: 1.5rem;
+}
+.dashboard__profile {
+  display: flex;
+  flex-direction: row;
   justify-content: flex-start;
+  background-color: var(--Blue);
+  padding: var(--layout-padding);
+  border-radius: 1rem;
+}
+.dashboard__profile-image {
+  width: 4.2rem;
+  height: 4.2rem;
+  border: 3px solid white;
+  border-radius: 50%;
+}
+
+.dashboard__user-name__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: flex-start;
+  padding-left: 1rem;
+}
+.dashboard__user-name {
+  /* JEREMY ROBSON */
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+.dashboard__report-title {
+  /* Report for */
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--Pale-Blue);
+}
+.dashboard__nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1.5rem;
+}
+.dashboard__nav-button {
+  /* DAILy WEEKLY MONTHLY */
+  background: none;
+  border: none;
+  outline: none;
+  margin: 0;
+  box-shadow: none;
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--Desaturated-blue);
+  font-size: 1.1rem;
+  font-weight: 300;
+}
+.dashboard__nav-button:hover {
+  color: white;
+  font-weight: 400;
+}
+
+/* Start styling List Elements*/
+
+ul, /*reset list style */
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.dashboard__activities {
+  width: 100%;
+}
+.dashboard__activity {
+  position: relative;
+  margin-bottom: 1.5rem;
+  max-height: 10rem;
+}
+.dashboard__activity:last-child {
+  margin-bottom: 0; /* reset last margin-bottom to center container on the body */
+}
+.activity-border {
+  background-color: var(
+    --Light-red-work
+  ); /* color is changed directy in the html for lazy reasons ^^ */
+  border-radius: 1rem;
+  height: 9.875rem;
+  width: 100%;
+  padding-top: 0.5rem;
+  position: relative; /* Allow the overflow of the activty__container */
+  overflow: hidden;
+}
+
+.activity-border__icon {
+  width: 4.8rem;
+  position: absolute;
+  top: -5px;
+  right: 1rem;
+}
+
+.activity__container {
+  background-color: var(--Dark-blue);
+  width: 100%;
+  padding: 1.5rem;
+  padding-bottom: 2.2rem;
+  border-radius: 1rem;
+  position: absolute;
+  top: 2rem;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: space-between;
+  transition: background-color 0.3s ease;
+}
+.activity__container:hover {
+  background-color: var(--Desaturated-blue);
+  cursor: pointer;
+}
+.activity__content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.activity__title {
+  /*WORK */
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+.activity__options {
+  all: unset;
+  cursor: pointer;
+  line-height: inherit;
+}
+.activity__option:hover {
+  transform: scale(1.2);
+}
+.activity__options__svg:hover {
+  filter: brightness(10) saturate(0);
+  transform: scale(1.01);
+  transition: filter 2s;
+}
+.activity__details {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.activity__hours {
+  /* 32hrs */
+  font-weight: 300;
+  font-size: 2rem;
+}
+
+/* Footer is hidden for design's purpose */
+.dashboard__footer {
+  display: none;
+}
+/* ### MEDIA QUERIES */
+
+@media (min-width: 36rem) {
+  body {
+    font-family: "Rubik", sans-serif;
+    background-color: var(--Very-dark-blue);
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .dashboard {
+    min-height: auto;
+    max-width: 70rem;
+    width: 70rem;
+    max-height: 32rem;
+    display: grid !important;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    /* border: 2px solid red; */
+  }
+  .dashboard__header {
+    height: 31.9em;
+    max-height: 31.9rem;
+    margin-bottom: 0.3rem;
+    padding: 0;
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .dashboard__activities {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    padding-left: var(--layout-gap);
+    gap: var(--layout-gap);
+    height: 32rem;
+    max-height: 32rem;
+  }
+  .dashboard__profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 22rem;
+    padding-top: 2.2rem;
+    padding: 2rem;
+  }
+  .dashboard__user-name__container {
+    padding: 0;
+    padding-top: 2.2rem;
+  }
+  .dashboard__user-name {
+    font-size: 2.2rem;
+    padding: 0;
+    margin: 0;
+  }
+  .dashboard__nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    height: auto;
+    padding: 0;
+    padding-left: 2rem;
+    margin: auto 0 auto 0;
+    gap: 1rem;
+  }
+  .activity-border {
+    padding: 0;
+    margin: 0;
+    height: 15rem;
+  }
+  .activity__container {
+    background-color: var(--Dark-blue);
+    width: 100%;
+    padding: 1.5rem;
+    padding-bottom: 2.2rem;
+    border-radius: 1rem;
+    position: absolute;
+    top: 2.6rem;
+    left: 0;
+    height: 13rem;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: space-evenly;
+  }
+  .activity__details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .activity__hours {
+    font-size: 2.625rem;
+  }
 }

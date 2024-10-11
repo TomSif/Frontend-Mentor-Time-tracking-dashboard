@@ -17,7 +17,7 @@
       sizes="32x32"
       href="./images/favicon-32x32.png"
     />
-    <link rel="stylesheet" href="modern-reset.css" />
+    <link rel="stylesheet" href="./modern-reset.css" />
     <link rel="stylesheet" href="./styles.css" />
     <script defer src="/main.js"></script>
     <title>Frontend Mentor | Time tracking dashboard</title>
@@ -31,167 +31,201 @@
             src="./images/image-jeremy.png"
             alt="Profile picture of Jeremy"
           />
-          <h2 class="dashboard__report-title">Report for</h2>
-          <h1 class="dashboard__user-name">Jeremy Robson</h1>
+          <div class="dashboard__user-name__container">
+            <h2 class="dashboard__report-title">Report for</h2>
+            <h1 class="dashboard__user-name">Jeremy Robson</h1>
+          </div>
         </div>
         <nav class="dashboard__nav" aria-label="Time period selection">
-          <button class="dashboard__nav-button">Daily</button>
-          <button class="dashboard__nav-button">Weekly</button>
-          <button class="dashboard__nav-button">Monthly</button>
+          <button class="dashboard__nav-button" id="dailyBtn">Daily</button>
+          <button class="dashboard__nav-button" id="weeklyBtn">Weekly</button>
+          <button class="dashboard__nav-button" id="monthlyBtn">Monthly</button>
         </nav>
       </header>
-      <ul class="dashboard__activities">
-        <li class="dashboard__activity">
-          <section class="activity">
-            <div class="background__activity">
+      <div class="list__container">
+        <!-- Activities list -->
+        <ul class="dashboard__activities">
+          <!-- Activity item: Work -->
+          <li class="dashboard__activity">
+            <div
+              class="activity-border"
+              style="background-color: var(--Light-red-work)"
+            >
               <img
                 src="./images/icon-work.svg"
-                alt="background icon for working activity"
+                alt="Work icon"
+                class="activity-border__icon"
               />
-            </div>
-            <div class="activity__total-time">
-              <p class="activity__total-text">Total time</p>
-              <h2 class="activity__title">Work</h2>
-            </div>
-            <div class="activity__previous">
-              <img
-                class="activity__icon"
-                src="./images/icon-ellipsis.svg"
-                alt="Work activity icon"
-              />
-              <div class="activity__previous-info">
-                <span class="activity__previous-text">Previous</span>
-                <span class="activity__previous-time">7hrs</span>
+              <div class="activity__container">
+                <div class="activity__content">
+                  <h2 class="activity__title">Work</h2>
+                  <button class="activity__options">
+                    <img
+                      src="./images/icon-ellipsis.svg"
+                      alt="icon-ellipsis"
+                      class="activity__options__svg"
+                    />
+                  </button>
+                </div>
+                <div class="activity__details">
+                  <p class="activity__hours" id="workTime">32hrs</p>
+                  <span id="previous-workTime">Last Week - 36hrs</span>
+                </div>
               </div>
             </div>
-          </section>
-        </li>
-        <li class="dashboard__activity">
-          <section class="activity">
-            <div class="background__activity">
+          </li>
+
+          <!-- Activity item: Play -->
+          <li class="dashboard__activity">
+            <div
+              class="activity-border"
+              style="background-color: var(--Soft-blue-play)"
+            >
               <img
                 src="./images/icon-play.svg"
-                alt="background icon for play activity"
+                alt="Play icon"
+                class="activity-border__icon"
               />
-            </div>
-            <div class="activity__total-time">
-              <p class="activity__total-text">Total time</p>
-              <h2 class="activity__title">Play</h2>
-            </div>
-            <div class="activity__previous">
-              <img
-                class="activity__icon"
-                src="./images/icon-ellipsis.svg"
-                alt="Play activity icon"
-              />
-              <div class="activity__previous-info">
-                <span class="activity__previous-text">Previous</span>
-                <span class="activity__previous-time">7hrs</span>
+              <div class="activity__container">
+                <div class="activity__content">
+                  <h2 class="activity__title">Play</h2>
+                  <button class="activity__options">
+                    <img
+                      src="./images/icon-ellipsis.svg"
+                      alt="icon-ellipsis"
+                      class="activity__options__svg"
+                    />
+                  </button>
+                </div>
+                <div class="activity__details">
+                  <p class="activity__hours" id="playTime">10hrs</p>
+                  <span id="previous-playTime">Last Week - 8hrs</span>
+                </div>
               </div>
             </div>
-          </section>
-        </li>
-        <li class="dashboard__activity">
-          <section class="activity">
-            <div class="background__activity">
+          </li>
+
+          <!-- Activity item: Study -->
+          <li class="dashboard__activity">
+            <div
+              class="activity-border"
+              style="background-color: var(--Light-red-study)"
+            >
               <img
                 src="./images/icon-study.svg"
-                alt="background icon for study activity"
+                alt="Study icon"
+                class="activity-border__icon"
               />
-            </div>
-            <div class="activity__total-time">
-              <p class="activity__total-text">Total time</p>
-              <h2 class="activity__title">Study</h2>
-            </div>
-            <div class="activity__previous">
-              <img
-                class="activity__icon"
-                src="./images/icon-ellipsis.svg"
-                alt="Study activity icon"
-              />
-              <div class="activity__previous-info">
-                <span class="activity__previous-text">Previous</span>
-                <span class="activity__previous-time">7hrs</span>
+              <div class="activity__container">
+                <div class="activity__content">
+                  <h2 class="activity__title">Study</h2>
+                  <button class="activity__options">
+                    <img
+                      src="./images/icon-ellipsis.svg"
+                      alt="icon-ellipsis"
+                      class="activity__options__svg"
+                    />
+                  </button>
+                </div>
+                <div class="activity__details">
+                  <p class="activity__hours" id="studyTime">4hrs</p>
+                  <span id="previous-studyTime">Last Week - 7hrs</span>
+                </div>
               </div>
             </div>
-          </section>
-        </li>
-        <li class="dashboard__activity">
-          <section class="activity">
-            <div class="background__activity">
+          </li>
+
+          <!-- Activity item: Exercise -->
+          <li class="dashboard__activity">
+            <div
+              class="activity-border"
+              style="background-color: var(--Lime-green-exercise)"
+            >
               <img
                 src="./images/icon-exercise.svg"
-                alt="background icon for exercise activity"
+                alt="Exercise icon"
+                class="activity-border__icon"
               />
-            </div>
-            <div class="activity__total-time">
-              <p class="activity__total-text">Total time</p>
-              <h2 class="activity__title">Exercise</h2>
-            </div>
-            <div class="activity__previous">
-              <img
-                class="activity__icon"
-                src="./images/icon-ellipsis.svg"
-                alt="Exercise activity icon"
-              />
-              <div class="activity__previous-info">
-                <span class="activity__previous-text">Previous</span>
-                <span class="activity__previous-time">7hrs</span>
+              <div class="activity__container">
+                <div class="activity__content">
+                  <h2 class="activity__title">Exercise</h2>
+                  <button class="activity__options">
+                    <img
+                      src="./images/icon-ellipsis.svg"
+                      alt="icon-ellipsis"
+                      class="activity__options__svg"
+                    />
+                  </button>
+                </div>
+                <div class="activity__details">
+                  <p class="activity__hours" id="exerciseTime">4hrs</p>
+                  <span id="previous-exerciseTime">Last Week - 5hrs</span>
+                </div>
               </div>
             </div>
-          </section>
-        </li>
-        <li class="dashboard__activity">
-          <section class="activity">
-            <div class="background__activity">
+          </li>
+
+          <!-- Activity item: Social -->
+          <li class="dashboard__activity">
+            <div
+              class="activity-border"
+              style="background-color: var(--Violet-social)"
+            >
               <img
                 src="./images/icon-social.svg"
-                alt="background icon for social activity"
+                alt="Social icon"
+                class="activity-border__icon"
               />
-            </div>
-            <div class="activity__total-time">
-              <p class="activity__total-text">Total time</p>
-              <h2 class="activity__title">Social</h2>
-            </div>
-            <div class="activity__previous">
-              <img
-                class="activity__icon"
-                src="./images/icon-ellipsis.svg"
-                alt="Social activity icon"
-              />
-              <div class="activity__previous-info">
-                <span class="activity__previous-text">Previous</span>
-                <span class="activity__previous-time">7hrs</span>
+              <div class="activity__container">
+                <div class="activity__content">
+                  <h2 class="activity__title">Social</h2>
+                  <button class="activity__options">
+                    <img
+                      src="./images/icon-ellipsis.svg"
+                      alt="icon-ellipsis"
+                      class="activity__options__svg"
+                    />
+                  </button>
+                </div>
+                <div class="activity__details">
+                  <p class="activity__hours" id="socialTime">5hrs</p>
+                  <span id="previous-socialTime">Last Week - 10hrs</span>
+                </div>
               </div>
             </div>
-          </section>
-        </li>
-        <li class="dashboard__activity">
-          <section class="activity">
-            <div class="background__activity">
+          </li>
+
+          <!-- Activity item: Self Care -->
+          <li class="dashboard__activity">
+            <div
+              class="activity-border"
+              style="background-color: var(--Soft-orange-self-care)"
+            >
               <img
                 src="./images/icon-self-care.svg"
-                alt="background icon for self-care activity"
+                alt="Self Care icon"
+                class="activity-border__icon"
               />
-            </div>
-            <div class="activity__total-time">
-              <p class="activity__total-text">Total time</p>
-              <h2 class="activity__title">Self Care</h2>
-            </div>
-            <div class="activity__previous">
-              <img
-                class="activity__icon"
-                src="./images/icon-ellipsis.svg"
-                alt="Self Care activity icon"
-              />
-              <div class="activity__previous-info">
-                <span class="activity__previous-text">Previous</span>
-                <span class="activity__previous-time">7hrs</span>
+              <div class="activity__container">
+                <div class="activity__content">
+                  <h2 class="activity__title">Self Care</h2>
+                  <button class="activity__options">
+                    <img
+                      src="./images/icon-ellipsis.svg"
+                      alt="icon-ellipsis"
+                      class="activity__options__svg"
+                    />
+                  </button>
+                </div>
+                <div class="activity__details">
+                  <p class="activity__hours" id="selfcareTime">2hrs</p>
+                  <span id="previous-selfcareTime">Last Week - 2hrs</span>
+                </div>
               </div>
             </div>
-          </section>
-        </li>
-      </ul>
+          </li>
+        </ul>
+      </div>
     </main>
     <footer class="dashboard__footer">
       <div class="dashboard__attribution">
