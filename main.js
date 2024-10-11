@@ -13,7 +13,7 @@ monthlyButton.addEventListener("click", () => updateData("monthly"));
 //create fetch function
 
 function updateData(timeframe) {
-  fetch("data.json")
+  fetch("./data.json")
     .then((response) => response.json())
     .then((data) => {
       data.forEach((activity) => {
